@@ -3,11 +3,13 @@ const connection=require('./config/db')
 const userRouter = require('./routes/user.route');
 const authentication = require('./middleware/authentication');
 const productRouter = require('./routes/product.route');
+const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
 const app=express();
 app.use(express.json())
+app.use(cors())
 
 app.get('/',(req,res)=>{
     res.send('Apple is cutting')
